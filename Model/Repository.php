@@ -79,6 +79,12 @@ class Repository
     private $repositoryUrl;
 
     /**
+     * @var string
+     * @Type("string")
+     */
+    private $repositoryUrlHttps;
+
+    /**
      * @param int $accountId
      */
     public function setAccountId($accountId)
@@ -268,5 +274,21 @@ class Repository
     public function getVcs()
     {
         return $this->vcs;
+    }
+
+    /**
+     * @param string $repositoryUrlHttps
+     */
+    public function setRepositoryUrlHttps($repositoryUrlHttps)
+    {
+        $this->repositoryUrlHttps = $repositoryUrlHttps;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRepositoryUrlHttps()
+    {
+        return $this->repositoryUrlHttps;
     }
 }

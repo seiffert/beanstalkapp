@@ -2,7 +2,10 @@
 
 namespace Beanstalk\Model;
 
+use JMS\Serializer\Annotation\HandlerCallback;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\DeserializationContext;
+use JMS\Serializer\JsonDeserializationVisitor;
 
 class RepositoryResponse
 {
@@ -18,5 +21,13 @@ class RepositoryResponse
     public function getRepository()
     {
         return $this->repository;
+    }
+
+    /**
+     * @HandlerCallback("json", direction = "deserialization")
+     */
+    public function deserializeFromJson(JsonDeserializationVisitor $visitor, $data, DeserializationContext $context)
+    {
+        $this->repository = $context->accept(current($data), ['name' => 'Beanstalk\Model\Repository']);
     }
 }

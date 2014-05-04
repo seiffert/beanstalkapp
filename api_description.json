@@ -17,6 +17,19 @@
                 }
             }
         },
+        "createRepository": {
+            "uri": "repositories.json",
+            "httpMethod": "POST",
+            "responseModel": "Beanstalk\\Model\\RepositoryResponse",
+            "parameters": {
+                "body": {
+                    "location": "json",
+                    "type": "Beanstalk\\Model\\RepositoryRequest",
+                    "required": true
+                }
+            }
+
+        },
         "updateRepository": {
             "uri": "repositories/{id}.json",
             "httpMethod": "PUT",

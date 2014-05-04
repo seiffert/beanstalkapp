@@ -2,6 +2,7 @@
 
 namespace Beanstalk;
 
+use Beanstalk\Command\CreateRepository;
 use Beanstalk\Command\UpdateRepository;
 use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
@@ -43,7 +44,7 @@ class Beanstalk
     public function findRepository($id)
     {
         try {
-            return $this->apiClient->findRepository(['id' => $id])->getRepository();
+            return $this->apiClient->findRepository(['id' => $id]);
         } catch (CommandException $e) {
             if ($e->getResponse() && 404 == $e->getResponse()->getStatusCode()) {
                 return null;
@@ -51,6 +52,18 @@ class Beanstalk
 
             throw $e;
         }
+    }
+
+    /**
+     * @param CreateRepository $repository
+     * @return Repository
+     */
+    public function createRepository(CreateRepository $repository)
+    {
+        /** @var RepositoryResponse $response */
+        $response = $this->apiClient->createRepository(['body' => new RepositoryRequest($repository)]);
+
+        return $response->getRepository();
     }
 
     /**
