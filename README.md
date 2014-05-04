@@ -1,5 +1,24 @@
 # Beanstalk API Wrapper
 
+## Installation
+
+Just require `"seiffert/beanstalkapp": "*"` in your `composer.json`. I'll add proper version numbers soon.
+
+## Usage
+
+    $factory = new \Beanstalk\BeanstalkFactory();
+
+    /** @var \Beanstalk\Beanstalk */
+    $beanstalk = $factory->create([
+        'username' => 'your_username',
+        'accessToken' => 'abcdefghijklmnopqrstuvwxyz1234567890',
+        'account' => 'your_account'
+    ]);
+
+    $beanstalk->createRepository(new CreateRepository('testrepo', 'Test Repository', 'red', 'git'));
+
+For mor usage examples, see the `Tests` directory.
+
 ## Test SetUp
 
 To run the library's test suite, you need to configure it by copying the file `Tests/config.php.dist` to

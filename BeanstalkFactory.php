@@ -96,9 +96,7 @@ class BeanstalkFactory
     {
         $builder = new SerializerBuilder();
 
-        $builder->setMetadataDirs([
-            'Beanstalk\\Model' => __DIR__ . '/Model'
-        ]);
+        $builder->setMetadataDirs(['Beanstalk\\Model' => __DIR__ . '/Model']);
         $builder->setDebug($configuration->isDebugModeEnabled());
         $builder->setCacheDir($configuration->getCacheDir());
 
