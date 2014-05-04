@@ -86,6 +86,11 @@
                     "required": true
                 }
             }
+        },
+        "findCurrentUser": {
+            "uri": "users/current.json",
+            "httpMethod": "GET",
+            "responseModel": "Beanstalk\\Model\\UserResponse"
         }
     }
 }

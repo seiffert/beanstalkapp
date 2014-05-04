@@ -139,4 +139,12 @@ class Beanstalk
             throw $e;
         }
     }
+
+    /**
+     * @return User
+     */
+    public function findCurrentUser()
+    {
+        return $this->apiClient->findCurrentUser();
+    }
 }
