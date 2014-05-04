@@ -7,3 +7,4 @@ require_once __DIR__ . '/find_unknown_repo.php';
 require_once __DIR__ . '/find_repo.php';
 require_once __DIR__ . '/find_tags.php';
 require_once __DIR__ . '/find_branches.php';
+require_once __DIR__ . '/find_all_users.php';

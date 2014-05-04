@@ -11,6 +11,8 @@ use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
 use Beanstalk\Model\Tag;
 use Beanstalk\Model\TagResponse;
+use Beanstalk\Model\User;
+use Beanstalk\Model\UserResponse;
 use GuzzleHttp\Command\Exception\CommandException;
 use GuzzleHttp\Command\Guzzle\GuzzleClientInterface;
 
@@ -104,6 +106,19 @@ class Beanstalk
                 return $response->getBranch();
             },
             $this->apiClient->findBranches(['id' => $id])
+        );
+    }
+
+    /**
+     * @return array|User[]
+     */
+    public function findAllUsers()
+    {
+        return array_map(
+            function (UserResponse $response) {
+                return $response->getUser();
+            },
+            $this->apiClient->findAllUsers()
         );
     }
 }

@@ -69,6 +69,11 @@
                     "required": true
                 }
             }
+        },
+        "findAllUsers": {
+            "uri": "users.json",
+            "httpMethod": "GET",
+            "responseModel": "array<Beanstalk\\Model\\UserResponse>"
         }
     }
 }
