@@ -7,24 +7,17 @@ use JMS\Serializer\Annotation\Type;
 class CreateRepository extends WriteRepository
 {
     /**
+     * File-system name.
+     * Required on create. Must be unique in account.
+     *
      * @var string
      * @Type("string")
      */
     private $name;
 
     /**
-     * @var string
-     * @Type("string")
-     */
-    private $title;
-
-    /**
-     * @var string
-     * @Type("string")
-     */
-    private $colorLabel;
-
-    /**
+     * Type of repository. (git / subversion)
+     *
      * @var string
      * @Type("string")
      */
@@ -40,7 +33,7 @@ class CreateRepository extends WriteRepository
     {
         $this->name = $name;
         $this->type = $type;
-        $this->title = $title;
-        $this->colorLabel = $color;
+
+        parent::__construct($title, $color);
     }
 }

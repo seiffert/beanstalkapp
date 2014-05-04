@@ -7,18 +7,24 @@ use JMS\Serializer\Annotation\Type;
 class Repository
 {
     /**
+     * File-system name.
+     *
      * @var string
      * @Type("string")
      */
     private $name;
 
     /**
+     * Time when the repository was first added to the system.
+     *
      * @var \DateTime
      * @Type("DateTime<'Y/m/d H:i:s e'>")
      */
     private $createdAt;
 
     /**
+     * Human-readable name.
+     *
      * @var string
      * @Type("string")
      */
@@ -31,48 +37,64 @@ class Repository
     private $storageUsedBytes;
 
     /**
+     * Time when the repository was last updated.
+     *
      * @var \DateTime
      * @Type("DateTime<'Y/m/d H:i:s e'>")
      */
     private $updatedAt;
 
     /**
+     * Name of the specified color label.
+     *
      * @var string
      * @Type("string")
      */
     private $colorLabel;
 
     /**
+     * ID of the associated account.
+     *
      * @var int
      * @Type("integer")
      */
     private $accountId;
 
     /**
+     * Unique ID.
+     *
      * @var int
      * @Type("integer")
      */
     private $id;
 
     /**
+     * Type of the repository. (git / subversion)
+     *
      * @var string
      * @Type("string")
      */
     private $type;
 
     /**
+     * Time of the last commit.
+     *
      * @var \DateTime
      * @Type("DateTime<'Y/m/d H:i:s e'>")
      */
     private $lastCommitAt;
 
     /**
+     * Name of a version control system the repoistory is using. (git / subversion)
+     *
      * @var string
      * @Type("string")
      */
     private $vcs;
 
     /**
+     * A URL that can be used to checkout or clone the repository.
+     *
      * @var string
      * @Type("string")
      */

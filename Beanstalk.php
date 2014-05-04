@@ -64,6 +64,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @param CreateRepository $repository
      * @return Repository
      */
@@ -76,6 +78,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @param int $id
      * @param UpdateRepository $repository
      */
@@ -85,6 +89,8 @@ class Beanstalk
     }
 
     /**
+     * Returns an array of repository’s tags. For Subversion always returns an empty array.
+     *
      * @param int $id
      * @return array|Tag[]
      */
@@ -99,6 +105,8 @@ class Beanstalk
     }
 
     /**
+     * Returns an array of repository’s branches. For Subversion always returns an empty array.
+     *
      * @param int $id
      * @return array|Branch[]
      */
