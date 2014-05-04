@@ -1,0 +1,24 @@
+{
+    "name": "seiffert/beanstalkapp",
+    "description": "PHP wrapper for Beanstalkapp's REST API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Seiffert",
+            "email": "paul.seiffert@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Beanstalk\\": "" }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "~4.0",
+        "guzzlehttp/guzzle-services": "0.2.0",
+        "guzzlehttp/log-subscriber": "1.0.0",
+        "jms/serializer": "0.16.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}

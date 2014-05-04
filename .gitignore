@@ -1,0 +1,4 @@
+vendor
+.idea
+cache
+!cache/.gitignore

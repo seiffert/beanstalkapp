@@ -1,0 +1,26 @@
+{
+    "operations": {
+        "findAllRepositories": {
+            "uri": "repositories.json",
+            "httpMethod": "GET",
+            "responseModel": "array<Beanstalk\\Model\\RepositoryResponse>"
+        },
+        "updateRepository": {
+            "uri": "repositories/{id}.json",
+            "httpMethod": "PUT",
+            "parameters": {
+                "body": {
+                    "location": "json",
+                    "type": "Beanstalk\\Model\\RepositoryRequest",
+                    "required": true
+                },
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "required": true
+                }
+            }
+
+        }
+    }
+}
