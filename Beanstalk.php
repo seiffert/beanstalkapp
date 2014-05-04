@@ -8,6 +8,8 @@ use Beanstalk\Command\UpdateRepository;
 use Beanstalk\Command\UpdateUser;
 use Beanstalk\Model\Branch;
 use Beanstalk\Model\BranchResponse;
+use Beanstalk\Model\PublicKey;
+use Beanstalk\Model\PublicKeyResponse;
 use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
@@ -199,5 +201,22 @@ class Beanstalk
     public function deleteUser($id)
     {
         $this->apiClient->deleteUser(['id' => $id]);
+    }
+
+    /**
+     * Admins can pass user_id parameter to fetch keys for all account’s users. Otherwise only current user’s keys are
+     * returned.
+     *
+     * @param int $userId
+     * @return array|PublicKey[]
+     */
+    public function findAllPublicKeys($userId = null)
+    {
+        return array_map(
+            function (PublicKeyResponse $response) {
+                return $response->getPublicKey();
+            },
+            $this->apiClient->findAllPublicKeys(['user_id' => $userId])
+        );
     }
 }

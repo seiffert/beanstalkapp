@@ -129,6 +129,18 @@
                     "required": true
                 }
             }
+        },
+        "findAllPublicKeys": {
+            "uri": "public_keys.json",
+            "httpMethod": "GET",
+            "responseModel": "array<Beanstalk\\Model\\PublicKeyResponse>",
+            "parameters": {
+                "user_id": {
+                    "location": "query",
+                    "required": false,
+                    "type": "integer"
+                }
+            }
         }
     }
 }
