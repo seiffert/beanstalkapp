@@ -28,7 +28,6 @@
                     "required": true
                 }
             }
-
         },
         "updateRepository": {
             "uri": "repositories/{id}.json",
@@ -100,6 +99,22 @@
                 "body": {
                     "location": "json",
                     "type": "Beanstalk\\Model\\UserRequest",
+                    "required": true
+                }
+            }
+        },
+        "updateUser": {
+            "uri": "users/{id}.json",
+            "httpMethod": "PUT",
+            "parameters": {
+                "body": {
+                    "location": "json",
+                    "type": "Beanstalk\\Model\\UserRequest",
+                    "required": true
+                },
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
                     "required": true
                 }
             }

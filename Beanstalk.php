@@ -5,6 +5,7 @@ namespace Beanstalk;
 use Beanstalk\Command\CreateRepository;
 use Beanstalk\Command\CreateUser;
 use Beanstalk\Command\UpdateRepository;
+use Beanstalk\Command\UpdateUser;
 use Beanstalk\Model\Branch;
 use Beanstalk\Model\BranchResponse;
 use Beanstalk\Model\Repository;
@@ -160,6 +161,15 @@ class Beanstalk
         $response = $this->apiClient->createUser(['body' => new UserRequest($user)]);
 
         return $response->getUser();
+    }
+
+    /**
+     * @param int $id
+     * @param UpdateUser $user
+     */
+    public function updateUser($id, UpdateUser $user)
+    {
+        $this->apiClient->updateUser(['id' => $id, 'body' => new UserRequest($user)]);
     }
 
     /**
