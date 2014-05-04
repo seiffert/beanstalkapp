@@ -2,3 +2,4 @@ vendor
 .idea
 cache
 !cache/.gitignore
+Tests/config.php

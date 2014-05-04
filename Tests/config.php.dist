@@ -1,0 +1,10 @@
+<?php
+
+define('BEANSTALK_USERNAME', <username>);
+define('BEANSTALK_ACCESS_TOKEN', <access token>);
+define('BEANSTALK_ACCOUNT', <account name>);
+
+define('TEST_REPOSITORY_ID', <test repository id>);
+define('TEST_REPOSITORY_TITLE', <test repository title>);
+define('TEST_REPOSITORY_COLOR', <test repository color label>);
+define('TEST_TAG', <test tag in test repository>);
