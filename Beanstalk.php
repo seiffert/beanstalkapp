@@ -4,6 +4,8 @@ namespace Beanstalk;
 
 use Beanstalk\Command\CreateRepository;
 use Beanstalk\Command\UpdateRepository;
+use Beanstalk\Model\Branch;
+use Beanstalk\Model\BranchResponse;
 use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
@@ -88,6 +90,20 @@ class Beanstalk
                 return $response->getTag();
             },
             $this->apiClient->findTags(['id' => $id])
+        );
+    }
+
+    /**
+     * @param int $id
+     * @return array|Branch[]
+     */
+    public function findBranches($id)
+    {
+        return array_map(
+            function (BranchResponse $response) {
+                return $response->getBranch();
+            },
+            $this->apiClient->findBranches(['id' => $id])
         );
     }
 }
