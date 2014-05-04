@@ -11,6 +11,11 @@ $beanstalk = $factory->create([
 
 $beanstalk->updateRepository(556269, new \Beanstalk\Command\UpdateRepository('Test', 'red'));
 
-print_r($beanstalk->findAllRepositories());
+$repositories = $beanstalk->findAllRepositories();
+if (0 < count($repositories) && 'red' === $repositories[0]->getColorLabel() && 'Test' === $repositories[0]->getTitle()) {
+    echo 'OK', PHP_EOL;
+} else {
+    echo 'NOT OK', PHP_EOL;
+}
 
 $beanstalk->updateRepository(556269, new \Beanstalk\Command\UpdateRepository('test-repository', 'blue'));

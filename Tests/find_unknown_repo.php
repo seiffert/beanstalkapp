@@ -9,9 +9,9 @@ $beanstalk = $factory->create([
     'account' => 'seiffert'
 ]);
 
-$repositories = $beanstalk->findAllRepositories();
+$repository = $beanstalk->findRepository(1);
 
-if (0 < count($repositories) && $repositories[0] instanceof \Beanstalk\Model\Repository) {
+if (null === $repository) {
     echo 'OK', PHP_EOL;
 } else {
     echo 'NOT OK', PHP_EOL;

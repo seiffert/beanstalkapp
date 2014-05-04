@@ -5,6 +5,18 @@
             "httpMethod": "GET",
             "responseModel": "array<Beanstalk\\Model\\RepositoryResponse>"
         },
+        "findRepository": {
+            "uri": "repositories/{id}.json",
+            "httpMethod": "GET",
+            "responseModel": "Beanstalk\\Model\\RepositoryResponse",
+            "parameters": {
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "required": true
+                }
+            }
+        },
         "updateRepository": {
             "uri": "repositories/{id}.json",
             "httpMethod": "PUT",

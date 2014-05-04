@@ -6,6 +6,7 @@ use Beanstalk\Command\UpdateRepository;
 use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
+use GuzzleHttp\Command\Exception\CommandException;
 use GuzzleHttp\Command\Guzzle\GuzzleClientInterface;
 
 class Beanstalk
@@ -32,6 +33,24 @@ class Beanstalk
             },
             $this->apiClient->findAllRepositories()
         );
+    }
+
+    /**
+     * @param int $id
+     * @throws CommandException
+     * @return Repository|null
+     */
+    public function findRepository($id)
+    {
+        try {
+            return $this->apiClient->findRepository(['id' => $id])->getRepository();
+        } catch (CommandException $e) {
+            if ($e->getResponse() && 404 == $e->getResponse()->getStatusCode()) {
+                return null;
+            }
+
+            throw $e;
+        }
     }
 
     /**
