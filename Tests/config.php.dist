@@ -8,3 +8,4 @@ define('TEST_REPOSITORY_ID', <test repository id>);
 define('TEST_REPOSITORY_TITLE', <test repository title>);
 define('TEST_REPOSITORY_COLOR', <test repository color label>);
 define('TEST_TAG', <test tag in test repository>);
+define('TEST_USER_ID', <test user id>);

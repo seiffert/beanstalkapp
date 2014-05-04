@@ -74,6 +74,18 @@
             "uri": "users.json",
             "httpMethod": "GET",
             "responseModel": "array<Beanstalk\\Model\\UserResponse>"
+        },
+        "findUser": {
+            "uri": "users/{id}.json",
+            "httpMethod": "GET",
+            "responseModel": "Beanstalk\\Model\\UserResponse",
+            "parameters": {
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "required": true
+                }
+            }
         }
     }
 }

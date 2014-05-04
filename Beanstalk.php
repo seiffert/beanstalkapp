@@ -121,4 +121,22 @@ class Beanstalk
             $this->apiClient->findAllUsers()
         );
     }
+
+    /**
+     * @param int $id
+     * @return null|User
+     * @throws CommandException
+     */
+    public function findUser($id)
+    {
+        try {
+            return $this->apiClient->findUser(['id' => $id]);
+        } catch (CommandException $e) {
+            if ($e->getResponse() && 404 == $e->getResponse()->getStatusCode()) {
+                return null;
+            }
+
+            throw $e;
+        }
+    }
 }
