@@ -113,6 +113,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @return array|User[]
      */
     public function findAllUsers()
@@ -126,6 +128,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @param int $id
      * @return null|User
      * @throws CommandException
@@ -144,6 +148,8 @@ class Beanstalk
     }
 
     /**
+     * Returns currently logged in user.
+     *
      * @return User
      */
     public function findCurrentUser()
@@ -152,6 +158,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @param CreateUser $user
      * @return User
      */
@@ -164,6 +172,8 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     *
      * @param int $id
      * @param UpdateUser $user
      */
@@ -173,6 +183,9 @@ class Beanstalk
     }
 
     /**
+     * Admin privileges required for this API method.
+     * You can not delete account owner.
+     *
      * @param int $id
      */
     public function deleteUser($id)
