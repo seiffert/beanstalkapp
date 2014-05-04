@@ -15,9 +15,11 @@ Just require `"seiffert/beanstalkapp": "*"` in your `composer.json`. I'll add pr
         'account' => 'your_account'
     ]);
 
-    $beanstalk->createRepository(new CreateRepository('testrepo', 'Test Repository', 'red', 'git'));
+    $beanstalk->createRepository(
+        new \Beanstalk\Command\CreateRepository('testrepo', 'Test Repository', 'red', 'git')
+    );
 
-For mor usage examples, see the `Tests` directory.
+For more usage examples, see the `Tests` directory.
 
 ## Test SetUp
 
