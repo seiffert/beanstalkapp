@@ -7,6 +7,8 @@ use Beanstalk\Command\UpdateRepository;
 use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
+use Beanstalk\Model\Tag;
+use Beanstalk\Model\TagResponse;
 use GuzzleHttp\Command\Exception\CommandException;
 use GuzzleHttp\Command\Guzzle\GuzzleClientInterface;
 
@@ -73,5 +75,19 @@ class Beanstalk
     public function updateRepository($id, UpdateRepository $repository)
     {
         $this->apiClient->updateRepository(['id' => $id, 'body' => new RepositoryRequest($repository)]);
+    }
+
+    /**
+     * @param int $id
+     * @return array|Tag[]
+     */
+    public function findTags($id)
+    {
+        return array_map(
+            function (TagResponse $response) {
+                return $response->getTag();
+            },
+            $this->apiClient->findTags(['id' => $id])
+        );
     }
 }
