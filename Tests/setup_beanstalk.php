@@ -7,5 +7,6 @@ $factory = new \Beanstalk\BeanstalkFactory();
 return $factory->create([
     'username' => BEANSTALK_USERNAME,
     'accessToken' => BEANSTALK_ACCESS_TOKEN,
-    'account' => BEANSTALK_ACCOUNT
+    'account' => BEANSTALK_ACCOUNT,
+    'debug' => true
 ]);

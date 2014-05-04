@@ -3,6 +3,7 @@
 namespace Beanstalk;
 
 use Beanstalk\Command\CreateRepository;
+use Beanstalk\Command\CreateUser;
 use Beanstalk\Command\UpdateRepository;
 use Beanstalk\Model\Branch;
 use Beanstalk\Model\BranchResponse;
@@ -12,6 +13,7 @@ use Beanstalk\Model\RepositoryResponse;
 use Beanstalk\Model\Tag;
 use Beanstalk\Model\TagResponse;
 use Beanstalk\Model\User;
+use Beanstalk\Model\UserRequest;
 use Beanstalk\Model\UserResponse;
 use GuzzleHttp\Command\Exception\CommandException;
 use GuzzleHttp\Command\Guzzle\GuzzleClientInterface;
@@ -146,5 +148,25 @@ class Beanstalk
     public function findCurrentUser()
     {
         return $this->apiClient->findCurrentUser();
+    }
+
+    /**
+     * @param CreateUser $user
+     * @return User
+     */
+    public function createUser(CreateUser $user)
+    {
+        /** @var UserResponse $response */
+        $response = $this->apiClient->createUser(['body' => new UserRequest($user)]);
+
+        return $response->getUser();
+    }
+
+    /**
+     * @param int $id
+     */
+    public function deleteUser($id)
+    {
+        $this->apiClient->deleteUser(['id' => $id]);
     }
 }

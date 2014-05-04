@@ -91,6 +91,29 @@
             "uri": "users/current.json",
             "httpMethod": "GET",
             "responseModel": "Beanstalk\\Model\\UserResponse"
+        },
+        "createUser": {
+            "uri": "users.json",
+            "httpMethod": "POST",
+            "responseModel": "Beanstalk\\Model\\UserResponse",
+            "parameters": {
+                "body": {
+                    "location": "json",
+                    "type": "Beanstalk\\Model\\UserRequest",
+                    "required": true
+                }
+            }
+        },
+        "deleteUser": {
+            "uri": "users/{id}.json",
+            "httpMethod": "DELETE",
+            "parameters": {
+                "id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "required": true
+                }
+            }
         }
     }
 }
