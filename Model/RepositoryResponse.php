@@ -7,13 +7,13 @@ use JMS\Serializer\Annotation\Type;
 class RepositoryResponse
 {
     /**
-     * @var ReadRepository
-     * @Type("Beanstalk\Model\ReadRepository")
+     * @var Repository
+     * @Type("Beanstalk\Model\Repository")
      */
     private $repository;
 
     /**
-     * @return ReadRepository
+     * @return Repository
      */
     public function getRepository()
     {

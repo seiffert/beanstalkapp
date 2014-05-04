@@ -4,7 +4,7 @@ namespace Beanstalk\Model;
 
 use JMS\Serializer\Annotation\Type;
 
-class ReadRepository
+class Repository
 {
     /**
      * @var string

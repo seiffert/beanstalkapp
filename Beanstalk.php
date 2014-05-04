@@ -3,7 +3,7 @@
 namespace Beanstalk;
 
 use Beanstalk\Command\UpdateRepository;
-use Beanstalk\Model\ReadRepository;
+use Beanstalk\Model\Repository;
 use Beanstalk\Model\RepositoryRequest;
 use Beanstalk\Model\RepositoryResponse;
 use GuzzleHttp\Command\Guzzle\GuzzleClientInterface;
@@ -22,7 +22,7 @@ class Beanstalk
     }
 
     /**
-     * @return ReadRepository[]
+     * @return Repository[]
      */
     public function findAllRepositories()
     {
